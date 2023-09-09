@@ -9,7 +9,7 @@ jobs:
         runs-on: deploy
         steps:
             - name: Install dependencies
-              run: npm install
+              run: echo "code pushed"
 
             # - name: Build
             #   run: npx lerna run build
