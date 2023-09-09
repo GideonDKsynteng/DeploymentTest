@@ -1,12 +1,14 @@
 name: Docker Image CI
 
 on:
+    push:
+        branches: [ "master" ]
     pull_request:
         branches: ["master"]
 
 jobs:
     deploy:
-        runs-on: deploy
+        runs-on: self-hosted
         steps:
             - name: Install dependencies
               run: echo "code pushed"
