@@ -1,0 +1,15 @@
+name: Docker Image CI
+
+on:
+    pull_request:
+        branches: ["master"]
+
+jobs:
+    deploy:
+        runs-on: deploy
+        steps:
+            - name: Install dependencies
+              run: npm install
+
+            # - name: Build
+            #   run: npx lerna run build
