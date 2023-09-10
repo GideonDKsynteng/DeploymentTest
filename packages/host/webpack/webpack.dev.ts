@@ -17,4 +17,18 @@ const devConfig = {
       },
     }),
   ],
+  devServer: {
+    port: 7000,
+    open: true,
+    allowedHosts: "all",
+    proxy: {
+      // "/api/v1/dbim": "http://localhost:3001",
+    },
+    historyApiFallback: true,
+  },
+  output: {
+    publicPath: `http://${hostURI}:7000/`,
+  },
 };
+
+module.exports = merge(commonConfig, devConfig);
