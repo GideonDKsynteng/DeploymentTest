@@ -11,14 +11,18 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: "host",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        marketing: "marketing@http://localhost:8081/remoteEntry.js",
+        auth: "auth@http://localhost:8082/remoteEntry.js",
+        dashboard: "dashboard@http://localhost:8083/remoteEntry.js",
+      },
       shared: {
         ...packageJason.dependencies,
       },
     }),
   ],
   devServer: {
-    port: 7000,
+    port: 8000,
     open: true,
     allowedHosts: "all",
     proxy: {
@@ -27,7 +31,7 @@ const devConfig = {
     historyApiFallback: true,
   },
   output: {
-    publicPath: `http://${hostURI}:7000/`,
+    publicPath: `http://${hostURI}:8000/`,
   },
 };
 
