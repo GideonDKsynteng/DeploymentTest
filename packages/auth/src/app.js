@@ -1,6 +1,5 @@
-// @ts-nocheck
 import React from "react";
-import { Routes, Route, Router, BrowserRouter } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
 
 import Signin from "./components/Signin";
@@ -10,16 +9,23 @@ const generateClassName = createGenerateClassName({
   productionPrefix: "au",
 });
 
-export default ({ history, onSignIn }) => {
+export default ({ onSignIn }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
-        <Router navigator={history} location={history.location} basename="auth">
+        <BrowserRouter>
           <Routes>
-            <Route path="/signin" element={<Signin onSignIn={onSignIn} />} />
-            <Route path="/signup" element={<Signup onSignIn={onSignIn} />} />
+            <Route
+              path="/auth/signin/"
+              element={<Signin onSignIn={onSignIn} />}
+            />
+
+            <Route
+              path="/auth/signup/"
+              element={<Signup onSignIn={onSignIn} />}
+            />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </StylesProvider>
     </div>
   );
