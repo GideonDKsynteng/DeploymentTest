@@ -1,10 +1,9 @@
 import React, { lazy, useEffect, useState, Suspense } from "react";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
-import { Router, Route, Routes, Navigate } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import Progress from "../component/Progress";
 import Header from "./../component/Header";
 import { createBrowserHistory } from "history";
-import CustomRouter from "component/CustomRouter/CustomRouter";
 
 const MarketingLazy = lazy(() => import("../pages/landing/index"));
 const AuthLazy = lazy(() => import("../pages/auth/index"));
@@ -24,7 +23,7 @@ export default () => {
   }, [isSignedIn]);
 
   return (
-    <Router navigator={history} location={history.location} basename="/">
+    <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
         <div>
           <Header
@@ -34,23 +33,17 @@ export default () => {
             isSignedIn={isSignedIn}
           />
           <Suspense fallback={<Progress />}>
-            <Routes>
-              <Route
-                path="/auth/signin"
-                element={
-                  <AuthLazy
-                    history={history}
-                    onSignIn={() => setIsSignedIn(true)}
-                  />
-                }
-              />
-              <Route
-                path="/dashboard"
-                element={!isSignedIn ? <Navigate to="/" /> : <DashboardLazy />}
-              />
+            <Switch>
+              <Route path="/auth/signin">
+                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+              </Route>
+              <Route path="/dashboard">
+                {!isSignedIn && <Redirect to="/" />}
+                <DashboardLazy />
+              </Route>
 
-              <Route path="/" element={<MarketingLazy />} />
-            </Routes>
+              <Route path="/" component={MarketingLazy} />
+            </Switch>
           </Suspense>
         </div>
       </StylesProvider>
