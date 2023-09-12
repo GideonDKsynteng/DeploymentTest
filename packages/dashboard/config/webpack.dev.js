@@ -4,10 +4,12 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 
+const hostURI = process.env.SERVER_URI || "localhost";
+
 const devConfig = {
   mode: "development",
   output: {
-    publicPath: "http://localhost:8083/",
+    publicPath: `http://${hostURI}:8083/`,
   },
   devServer: {
     port: 8083,
