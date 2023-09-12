@@ -12,9 +12,9 @@ const devConfig = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        marketing: "marketing@http://localhost:8081/remoteEntry.js",
-        auth: "auth@http://localhost:8082/remoteEntry.js",
-        dashboard: "dashboard@http://localhost:8083/remoteEntry.js",
+        marketing: `marketing@http://${hostURI}:8081/remoteEntry.js`,
+        auth: `auth@http://${hostURI}:8082/remoteEntry.js`,
+        dashboard: `dashboard@http://${hostURI}:8083/remoteEntry.js`,
       },
       shared: {
         ...packageJason.dependencies,
