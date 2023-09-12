@@ -12,7 +12,7 @@ const mount = (el, { onSignIn }) => {
 if (process.env.NODE_ENV === "development") {
   const devRoot = document.querySelector("#_auth-dev-root");
   if (devRoot) {
-    mount(devRoot);
+    mount(devRoot, { onSignIn: () => console.log("click") });
   }
 }
 
