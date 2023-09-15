@@ -4,4 +4,4 @@ build
 .vscode
 .VSCode*
 .eslintcache
-coverage
+/coverage/*
