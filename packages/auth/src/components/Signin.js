@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -12,7 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Link } from "react-router-dom";
 
-function Copyright() {
+const Copyrighfunction Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
@@ -26,9 +27,7 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  "@global": {
-    a: {
-      textDecoration: "none"
+  "@global":      textDecoration: "none"
     }
   },
   paper: {
@@ -98,13 +97,9 @@ export default function SignIn({ onSignIn }) {
           </Button>
           <Grid container>
             <Grid item>
-              <Link to="/signup">{"Don't have an account? Sign Up"}</Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
+              <Link to="/signup">Don't have an account? Sign Up</Link>
+ Up"}</Link>
+right />
       </Box>
     </Container>
   );
