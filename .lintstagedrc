@@ -1,0 +1,5 @@
+{
+  "packages/**/*.+(js|jsx|json|ts|tsx)": ["eslint --cache --fix"],
+  "microservices/**/*.+(js|ts)": ["eslint --cache --fix"],
+  "*": ["prettier --write --ignore-unknown"]
+}

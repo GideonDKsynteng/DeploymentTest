@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    build: nginx
+    depends_on:
+      - host
+    ports:
+      - "80:80"
+
+  host:
+    container_name: host
+    image: host
+    build: 
+      context: packages/host
+      dockerfile: Dockerfile.prod
+      args:
+        - SERVER_URI=${SERVER_URI}
+    restart: always
+
+  auth:
+    container_name: auth
+    image: auth
+    build: 
+      context: packages/auth
+      dockerfile: Dockerfile.prod
+      args:
+        - SERVER_URI=${SERVER_URI}
+    restart: always
+
+  dashboard:
+    container_name: dashboard
+    image: dashboard
+    build: 
+      context: packages/dashboard
+      dockerfile: Dockerfile.prod
+      args:
+        - SERVER_URI=${SERVER_URI}
+    restart: always
+
+  marketing:
+    container_name: marketing
+    image: marketing
+    build: 
+      context: packages/marketing
+      dockerfile: Dockerfile.prod
+      args:
+        - SERVER_URI=${SERVER_URI}
+    restart: always

@@ -25,26 +25,26 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   "@global": {
     a: {
-      textDecoration: "none",
-    },
+      textDecoration: "none"
+    }
   },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(3, 0, 2)
+  }
 }));
 
 export default function SignUp({ onSignIn }) {
@@ -59,11 +59,7 @@ export default function SignUp({ onSignIn }) {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className={classes.form}
-          noValidate
-        >
+        <form onSubmit={(e) => e.preventDefault()} className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -130,7 +126,7 @@ export default function SignUp({ onSignIn }) {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link to="/auth/signin">Already have an account? Sign in</Link>
+              <Link to="/signin">Already have an account? Sign in</Link>
             </Grid>
           </Grid>
         </form>

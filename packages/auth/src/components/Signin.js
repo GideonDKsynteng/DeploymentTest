@@ -28,26 +28,26 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   "@global": {
     a: {
-      textDecoration: "none",
-    },
+      textDecoration: "none"
+    }
   },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(3, 0, 2)
+  }
 }));
 
 export default function SignIn({ onSignIn }) {
@@ -62,11 +62,7 @@ export default function SignIn({ onSignIn }) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className={classes.form}
-          noValidate
-        >
+        <form onSubmit={(e) => e.preventDefault()} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -89,10 +85,7 @@ export default function SignIn({ onSignIn }) {
             id="password"
             autoComplete="current-password"
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+          <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
           <Button
             type="submit"
             fullWidth
