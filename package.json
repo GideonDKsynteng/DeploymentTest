@@ -8,7 +8,8 @@
   "scripts": {
     "test": "lerna run test",
     "dev": "lerna run dev",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
