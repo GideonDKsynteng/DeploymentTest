@@ -6,7 +6,7 @@ export default ({ onSignIn }) => {
 
   useEffect(() => {
     mount(ref.current, {
-      onSignIn,
+      onSignIn
     });
   }, []);
 
