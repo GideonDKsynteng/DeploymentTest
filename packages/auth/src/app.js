@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import { StylesProvider, createGenerateClassName } from "@material-ui/core";
-import Signin from "./components/Signin";
 import Signup from "./components/Signup";
+// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
+import Signin from "./components/Signin";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "au"
