@@ -2,7 +2,6 @@ import React, { lazy, useEffect, useState, Suspense } from "react";
 import { Navigate, Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import Header from "../component/Header";
 import Progress from "../component/Progress";
-// import Marketing from "../pages/landing/index";
 
 const MarketingLazy = lazy(() => import("../pages/landing/index"));
 const AuthLazy = lazy(() => import("../pages/auth/index"));

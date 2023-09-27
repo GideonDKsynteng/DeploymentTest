@@ -14,18 +14,18 @@ const prodConfig = {
   output: {
     filename: "host.[contenthash].js",
     clean: true,
-    publicPath: `/host/`
+    publicPath: `/`
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "host",
       remotes: {
-        marketing: `marketing@http://${getDomain()}:8081/remoteEntry.js`,
-        auth: `auth@http://${getDomain()}:8082/remoteEntry.js`,
-        dashboard: `dashboard@http://${getDomain()}:8083/remoteEntry.js`
+        marketing: `marketing@${getDomain()}/marketing/remoteEntry.js`,
+        auth: `auth@${getDomain()}/auth/remoteEntry.js`,
+        dashboard: `dashboard@${getDomain()}/dashboard/remoteEntry.js`
       },
       shared: packageJson.dependencies
-    }),
+    })
   ]
 };
 

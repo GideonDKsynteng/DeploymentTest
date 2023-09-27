@@ -5,3 +5,5 @@ build
 .VSCode*
 .eslintcache
 coverage/
+lerna-debug.log
+.npmrc
