@@ -20,7 +20,7 @@ services:
         - SERVER_URI=${SERVER_URI}
     restart: always
     volumes:
-      - /bin/.npmrc:/app/.npmrc
+      - /bin/zzznpm:/app/.npmrc
     ports:
       - "8000:8000"
 
