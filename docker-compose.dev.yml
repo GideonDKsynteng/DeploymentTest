@@ -19,6 +19,8 @@ services:
       args:
         - SERVER_URI=${SERVER_URI}
     restart: always
+    volumes:
+      - /bin/.npmrc:/app/.npmrc
     ports:
       - "8000:8000"
 
