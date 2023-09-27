@@ -5,3 +5,4 @@ build
 .VSCode*
 .eslintcache
 coverage/
+.npmrc
