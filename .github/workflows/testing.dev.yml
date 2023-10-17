@@ -12,12 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: test_job1
-        id: test_job1
-        run: node test.js
+      # - name: test_job1
+      #   id: test_job1
+      #   run: node test.js
 
-      - name: print containers
-        run: echo "${{ steps.test_job1.outputs }} from the file outputs"
+      # - name: print containers
+      #   run: echo "${{ steps.test_job1.outputs }} from the file outputs"
 
       - name: Print things
         run: |
