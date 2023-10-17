@@ -7,19 +7,38 @@ on:
     branches: ["master"]
 
 jobs:
-  example_matrix:
-    strategy:
-      matrix:
-        containers: ["alarms", "dashboard", "ms-config"]
+  test_job:
     runs-on: dev
     steps:
       - uses: actions/checkout@v3
 
-      - name: Test cleanup
-        run: docker system prune -f
+      - name: test_job1
+        id: test_job1
+        run: node test.js
 
       - name: print containers
-        run: echo "${{ matrix.containers }} from the matrix strategy"
+        run: echo "${{ steps.test_job1.outputs }} from the file outputs"
+
+      - name: Print things
+        run: |
+          for x in ["sedes","esfesf","test"]; do
+            echo "$x"
+          done
+
+# jobs:
+#   example_matrix:
+#     strategy:
+#       matrix:
+#         containers: ["alarms", "dashboard", "ms-config"]
+#     runs-on: dev
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Test cleanup
+#         run: docker system prune -f
+
+#       - name: print containers
+#         run: echo "${{ matrix.containers }} from the matrix strategy"
 # jobs:
 #   deploy:
 #     runs-on: self-hosted
