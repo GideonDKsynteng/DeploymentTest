@@ -14,12 +14,12 @@ jobs:
 
       - name: Testing Array Looping
         run: |
-          arr=("item1" "item2" "item3")  # Define your array
+          arr=(nginx host auth dashboard marketing)  # Define your array
 
           # Loop over the array
           for item in "${arr[@]}"; do
             echo "Processing $item"
-            # Add your processing logic here for each item in the array
+            SERVER_URI=10.10.0.129 docker-compose -f docker-compose.dev.yml up -d --build $item
           done
 
       # - name: test_job1
