@@ -13,21 +13,19 @@ services:
   host:
     container_name: host
     image: host
-    build: 
+    build:
       context: packages/host
       dockerfile: Dockerfile.dev
       args:
         - SERVER_URI=${SERVER_URI}
     restart: always
-    volumes:
-      - /bin/zzznpm:/app/.npmrc
     ports:
       - "8000:8000"
 
   auth:
     container_name: auth
     image: auth
-    build: 
+    build:
       context: packages/auth
       dockerfile: Dockerfile.dev
       args:
@@ -39,7 +37,7 @@ services:
   dashboard:
     container_name: dashboard
     image: dashboard
-    build: 
+    build:
       context: packages/dashboard
       dockerfile: Dockerfile.dev
       args:
@@ -51,7 +49,7 @@ services:
   marketing:
     container_name: marketing
     image: marketing
-    build: 
+    build:
       context: packages/marketing
       dockerfile: Dockerfile.dev
       args:
