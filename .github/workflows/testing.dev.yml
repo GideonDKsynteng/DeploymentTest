@@ -22,7 +22,7 @@ jobs:
       - name: Print things
         run: |
           for x in ["sedes","esfesf","test"]; do
-            echo "$x"
+            echo "hello $x"
           done
 
 # jobs:
