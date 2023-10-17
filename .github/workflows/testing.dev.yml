@@ -6,34 +6,36 @@ on:
   pull_request:
     branches: ["master"]
 
-jobs:
-  test_job:
-    runs-on: dev
-    steps:
-      - uses: actions/checkout@v3
+# jobs:
+#   test_job:
+#     runs-on: dev
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - name: Testing Array Looping
-        run: |
-          arr=(nginx host auth dashboard marketing)  # Define your array
+#       - name: Testing Array Looping
+#         run: |
+#           arr=(nginx host auth dashboard marketing)  # Define your array
 
-          # Loop over the array
-          for item in "${arr[@]}"; do
-            echo "Processing $item"
-            SERVER_URI=10.10.0.129 docker-compose -f docker-compose.dev.yml up -d --build $item
-          done
+#           # Loop over the array
+#           for item in "${arr[@]}"; do
+#             echo "//////////////////////////////////////////////////////////////////////////"
+#             echo "Building $item Container"
+#             echo "//////////////////////////////////////////////////////////////////////////"
+#             SERVER_URI=10.10.0.129 docker-compose -f docker-compose.dev.yml up -d --build $item
+#           done
 
-      # - name: test_job1
-      #   id: test_job1
-      #   run: node test.js
+# - name: test_job1
+#   id: test_job1
+#   run: node test.js
 
-      # - name: print containers
-      #   run: echo "${{ steps.test_job1.outputs }} from the file outputs"
+# - name: print containers
+#   run: echo "${{ steps.test_job1.outputs }} from the file outputs"
 
-      # - name: Print things
-      #   run: |
-      #     for x in ["sedes","esfesf","test"]; do
-      #       echo "hello ${x} from loop"
-      #     done
+# - name: Print things
+#   run: |
+#     for x in ["sedes","esfesf","test"]; do
+#       echo "hello ${x} from loop"
+#     done
 
 # jobs:
 #   example_matrix:
@@ -49,11 +51,11 @@ jobs:
 
 #       - name: print containers
 #         run: echo "${{ matrix.containers }} from the matrix strategy"
-# jobs:
-#   deploy:
-#     runs-on: self-hosted
-#     steps:
-#       - uses: actions/checkout@v3
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
 
-#       - name: start docker compose
-#         run: SERVER_URI=10.10.0.129 docker compose -f docker-compose.dev.yml up -d --build
+      - name: start docker compose
+        run: SERVER_URI=10.10.0.129 docker compose -f docker-compose.dev.yml up -d --build
