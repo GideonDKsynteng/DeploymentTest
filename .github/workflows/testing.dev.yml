@@ -12,6 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Testing Array Looping
+        run: |
+          arr=("item1" "item2" "item3")  # Define your array
+
+          # Loop over the array
+          for item in "${arr[@]}"; do
+            echo "Processing $item"
+            # Add your processing logic here for each item in the array
+          done
+
       # - name: test_job1
       #   id: test_job1
       #   run: node test.js
@@ -19,11 +29,11 @@ jobs:
       # - name: print containers
       #   run: echo "${{ steps.test_job1.outputs }} from the file outputs"
 
-      - name: Print things
-        run: |
-          for x in ["sedes","esfesf","test"]; do
-            echo "hello ${x} from loop"
-          done
+      # - name: Print things
+      #   run: |
+      #     for x in ["sedes","esfesf","test"]; do
+      #       echo "hello ${x} from loop"
+      #     done
 
 # jobs:
 #   example_matrix:
