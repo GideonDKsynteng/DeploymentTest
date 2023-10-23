@@ -11,5 +11,5 @@ Within this project, there is a directory with the name **`packages`**. This fol
 cd into the `packages` folder to create a new `microfrontend` project.
 
 Run the command below to generate a new microfrontend app.
-
-    cd package
+wfw3rf
+cd package
