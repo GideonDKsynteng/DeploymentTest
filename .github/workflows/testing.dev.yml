@@ -37,23 +37,21 @@ on:
 #       echo "hello ${x} from loop"
 #     done
 
-jobs:
-  example_matrix:
-    strategy:
-      matrix:
-        containers: ["alarms", "dashboard", "ms-config"]
-    runs-on: dev
-    steps:
-      - uses: actions/checkout@v3
+# jobs:
+#   example_matrix:
+#     strategy:
+#       matrix:
+#         containers: ["alarms", "dashboard", "ms-config"]
+#     runs-on: dev
+#     steps:
+#       - uses: actions/checkout@v3
 
-      - name: print containers
-        run: bash -c "chmod 777 ./MODELS/script.sh && ./MODELS/script.sh"
+#       - name: Test cleanup
+#         run: docker system prune -f
 
-      - name: Test cleanup
-        run: docker system prune -f
+#       - name: print containers
+#         run: echo "${{ matrix.containers }} from the matrix strategy"
 
-      - name: print containers
-        run: echo "${{ matrix.containers }} from the matrix strategy"
 # jobs:
 #   deploy:
 #     runs-on: self-hosted
@@ -62,3 +60,12 @@ jobs:
 
 #       - name: start docker compose
 #         run: SERVER_URI=10.10.0.129 docker compose -f docker-compose.dev.yml up -d --build
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: print containers
+        run: bash -c "chmod 777 ./MODELS/script.sh && ./MODELS/script.sh"

@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Your Docker command
-docker exec -it dashboard bash "ls"
+docker exec dashboard bash "ls"
