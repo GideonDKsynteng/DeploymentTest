@@ -62,7 +62,25 @@ on:
 #         run: SERVER_URI=10.10.0.129 docker compose -f docker-compose.dev.yml up -d --build
 
 jobs:
+  init:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: print containers
+        run: bash -c "chmod 777 ./MODELS/script.sh && ./MODELS/script.sh"
+
   deploy:
+    needs: init
+    runs-on: idk
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: print containers
+        run: bash -c "chmod 777 ./MODELS/script.sh && ./MODELS/script.sh"
+
+  finally:
+    needs: deploy
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
